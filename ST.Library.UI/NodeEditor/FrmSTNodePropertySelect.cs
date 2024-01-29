@@ -5,15 +5,18 @@ using System.Text;
 
 using System.Windows.Forms;
 using System.Drawing;
+using NodeEditor.BaseType;
 
 namespace ST.Library.UI.NodeEditor
 {
+    // 下拉框类型的property选择会用到这个类
     internal class FrmSTNodePropertySelect : Form
     {
         private STNodePropertyDescriptor m_descriptor;
         private int m_nItemHeight = 25;
 
         private static Type m_t_bool = typeof(bool);
+        private static Type m_t_BTN = typeof(BinaryNodeBasicType);
         private Pen m_pen;
         private SolidBrush m_brush;
         private StringFormat m_sf;
@@ -42,6 +45,7 @@ namespace ST.Library.UI.NodeEditor
 
         private List<object> m_lst_item = new List<object>();
 
+        // 加载属性值（类似下拉框的属性值）
         protected override void OnLoad(EventArgs e) {
             base.OnLoad(e);
             Point pt = m_descriptor.Control.PointToScreen(m_descriptor.RectangleR.Location);
@@ -52,7 +56,15 @@ namespace ST.Library.UI.NodeEditor
             } else if (m_descriptor.PropertyInfo.PropertyType == m_t_bool) {
                 m_lst_item.Add(true);
                 m_lst_item.Add(false);
-            } else {
+            } 
+            //else if (m_descriptor.PropertyInfo.PropertyType == m_t_BTN)
+            //{
+            //    m_lst_item.Add(new BinaryNodeBasicType("自动二值化"));
+            //    m_lst_item.Add(new BinaryNodeBasicType("均值二值化"));
+            //    m_lst_item.Add(new BinaryNodeBasicType("硬阈值二值化"));
+            //    m_lst_item.Add(new BinaryNodeBasicType("高斯二值化"));
+            //} 
+            else {
                 this.Close();
                 return;
             }
@@ -111,6 +123,24 @@ namespace ST.Library.UI.NodeEditor
             } catch (Exception ex) {
                 m_descriptor.OnSetValueError(ex);
             }
+        }
+
+        private void InitializeComponent()
+        {
+            this.SuspendLayout();
+            // 
+            // FrmSTNodePropertySelect
+            // 
+            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Name = "FrmSTNodePropertySelect";
+            this.Load += new System.EventHandler(this.FrmSTNodePropertySelect_Load);
+            this.ResumeLayout(false);
+
+        }
+
+        private void FrmSTNodePropertySelect_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

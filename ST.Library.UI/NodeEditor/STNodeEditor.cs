@@ -642,7 +642,9 @@ namespace ST.Library.UI.NodeEditor
                     if ((n & 0x0040) == 0x0040) mb |= MouseButtons.XButton2;
                     this.OnMouseHWheel(new MouseEventArgs(mb, 0, pt.X, pt.Y, ((int)m.WParam) >> 16));
                 }
-            } catch { /*add code*/ }
+            } catch(Exception e) {
+                Console.WriteLine(e.Message);
+            }
         }
 
         protected override void OnPaint(PaintEventArgs e) {

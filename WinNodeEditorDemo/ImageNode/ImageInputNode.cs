@@ -10,7 +10,7 @@ using System.Reflection;
 namespace WinNodeEditorDemo.ImageNode
 {
 
-    [STNode("Image", "Crystal_lz", "2212233137@qq.com", "st233.com", "Image Node")]
+    [STNode("Image", "", "", "", "Image Node")]
     public class ImageInputNode : ImageBaseNode
     {
         private string _FileName;//默认的DescriptorType不支持文件路径的选择 所以需要扩展

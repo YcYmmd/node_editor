@@ -11,7 +11,7 @@ namespace WinNodeEditorDemo.NumberNode
     /// <summary>
     /// 此节点通过Number属性提供一个整数的输入
     /// </summary>
-    [STNode("/Number","Crystal_lz","2212233137@qq.com","st233.com","Number input node")]
+    [STNode("/Number","","","","Number input node")]
     public class NumberInputNode : NumberNode
     {
         private int _Number;

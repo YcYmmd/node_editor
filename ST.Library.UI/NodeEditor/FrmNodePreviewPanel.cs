@@ -140,5 +140,23 @@ namespace ST.Library.UI.NodeEditor
             m_pen.Width = 1;
             g.DrawRectangle(m_pen, rect.X, rect.Y, rect.Width - 1, rect.Height - 1);
         }
+
+        private void InitializeComponent()
+        {
+            this.SuspendLayout();
+            // 
+            // FrmNodePreviewPanel
+            // 
+            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Name = "FrmNodePreviewPanel";
+            this.Load += new System.EventHandler(this.FrmNodePreviewPanel_Load);
+            this.ResumeLayout(false);
+
+        }
+
+        private void FrmNodePreviewPanel_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

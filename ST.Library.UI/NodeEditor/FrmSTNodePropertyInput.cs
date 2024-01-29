@@ -108,7 +108,14 @@ namespace ST.Library.UI
             // 
             this.ClientSize = new System.Drawing.Size(292, 273);
             this.Name = "FrmSTNodePropertyInput";
+            this.Load += new System.EventHandler(this.FrmSTNodePropertyInput_Load);
             this.ResumeLayout(false);
+
+        }
+
+        private void FrmSTNodePropertyInput_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

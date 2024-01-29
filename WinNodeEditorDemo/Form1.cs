@@ -84,5 +84,15 @@ namespace WinNodeEditorDemo
             if (stNodeEditor1.ActiveNode == null) return;
             stNodeEditor1.Nodes.Remove(stNodeEditor1.ActiveNode);
         }
+
+        private void stNodePropertyGrid1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void stNodeTreeView1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

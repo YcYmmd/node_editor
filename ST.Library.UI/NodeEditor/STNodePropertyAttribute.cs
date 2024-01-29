@@ -6,6 +6,7 @@ using System.Text;
 using System.Drawing;
 using System.Reflection;
 using System.Windows.Forms;
+using NodeEditor.BaseType;
 
 namespace ST.Library.UI.NodeEditor
 {
@@ -95,6 +96,7 @@ namespace ST.Library.UI.NodeEditor
         private static Type m_t_double = typeof(double);
         private static Type m_t_string = typeof(string);
         private static Type m_t_bool = typeof(bool);
+        private static Type m_t_BNT = typeof(BinaryNodeBasicType);
 
         private StringFormat m_sf;
 
@@ -275,7 +277,9 @@ namespace ST.Library.UI.NodeEditor
             brush.Color = this.Control.ForeColor;
             g.DrawString(this.GetStringFromValue(), ctrl.Font, brush, this.RectangleR, m_sf);
 
-            if (this.PropertyInfo.PropertyType.IsEnum || this.PropertyInfo.PropertyType == m_t_bool) {
+            // 如果是这两种类型，那么就展现成下拉框的形式，此处是画一个小三角形，模拟下拉框
+            if (this.PropertyInfo.PropertyType.IsEnum 
+                || this.PropertyInfo.PropertyType == m_t_bool) {
                 g.FillPolygon(Brushes.Gray, new Point[]{
                         new Point(rect.Right - 13, rect.Top + rect.Height / 2 - 2),
                         new Point(rect.Right - 4, rect.Top + rect.Height / 2 - 2),
@@ -319,6 +323,12 @@ namespace ST.Library.UI.NodeEditor
                 new FrmSTNodePropertySelect(this).Show(this.Control);
                 return;
             }
+            if (t == m_t_BNT)
+            {
+                new FrmSTNodePropertyTab(this).Show(this.Control);
+                return;
+            }
+            
             Rectangle rect = this.Control.RectangleToScreen(this.RectangleR);
             new FrmSTNodePropertyInput(this).Show(this.Control);
         }
