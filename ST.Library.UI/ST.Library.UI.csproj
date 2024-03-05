@@ -82,6 +82,7 @@
       <DependentUpon>MyTabControl.cs</DependentUpon>
     </Compile>
     <Compile Include="NodeEditor\BaseType\BinaryNodeBasicType.cs" />
+    <Compile Include="NodeEditor\BinaryNodePropertyTransporter.cs" />
     <Compile Include="NodeEditor\FrmNodePreviewPanel.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -48,7 +48,7 @@ namespace ST.Library.UI.NodeEditor
         /// <param name="strDesc">需要显示的描述信息</param>
         public STNodePropertyAttribute(string strKey, string strDesc) {
             this._Name = strKey;
-            this._Description = strDesc;
+            this._Description = strDesc; 
         }
         //private Type m_descriptor_type_base = typeof(STNodePropertyDescriptor);
     }
@@ -323,12 +323,12 @@ namespace ST.Library.UI.NodeEditor
                 new FrmSTNodePropertySelect(this).Show(this.Control);
                 return;
             }
-            if (t == m_t_BNT)
-            {
-                new FrmSTNodePropertyTab(this).Show(this.Control);
-                return;
-            }
-            
+            //if (t == m_t_BNT)
+            //{
+            //    new FrmSTNodePropertyTab(this).Show(this.Control);
+            //    return;
+            //}
+
             Rectangle rect = this.Control.RectangleToScreen(this.RectangleR);
             new FrmSTNodePropertyInput(this).Show(this.Control);
         }
